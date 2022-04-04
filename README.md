@@ -1,3 +1,3 @@
 # projectSOS
 
-this is projectSOS with sanghoon and hyejeong.
+This is projectSOS with sanghoon and hyejeong.
