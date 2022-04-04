@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="소스.cpp" />
+    <ClCompile Include="projectSOS_Method.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
