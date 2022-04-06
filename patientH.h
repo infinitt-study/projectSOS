@@ -1,5 +1,5 @@
-#ifndef doctorH
-#define doctorH
+#ifndef patientH
+#define patientH
 
 #include <iostream>
 #include <cstring>
@@ -8,11 +8,8 @@ using namespace std;
 
 #include "personH.h"
 
-class Doctor : public Person
+class Patient : Person
 {
-	vector<string> toPatList; // 담당환자 리스트
-	
-
 public:
 	// 입력
 	// 출력

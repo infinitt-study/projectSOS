@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <cstring>
+#include <fstream>
 #include <vector>
+using namespace std;
 
 #include "doctorH.h"
 

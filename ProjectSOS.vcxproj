@@ -139,8 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="admHandlerH.cpp" />
     <ClCompile Include="docHandlerH.cpp" />
     <ClCompile Include="doctorH.cpp" />
+    <ClCompile Include="patHandlerH.cpp" />
+    <ClCompile Include="patientH.cpp" />
     <ClCompile Include="personH.cpp" />
     <ClCompile Include="projectSOS_Method.cpp" />
   </ItemGroup>
@@ -148,8 +151,11 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="admHandlerH.h" />
     <ClInclude Include="docHandlerH.h" />
     <ClInclude Include="doctorH.h" />
+    <ClInclude Include="patHandlerH.h" />
+    <ClInclude Include="patientH.h" />
     <ClInclude Include="personH.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
