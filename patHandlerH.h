@@ -25,10 +25,10 @@ public:
 		if (!fout)
 		{
 			cout << "환자 리스트 파일 stream 실패 !!!\n";
-			return;
+			exit(-1);
 		}
 
-		fout.write(배열 / 데이터크기);
+		/*fout.write(배열 / 데이터크기);*/
 
 		fout.close();
 
@@ -42,7 +42,7 @@ public:
 		if (!fin)
 		{
 			cout << "환자 리스트 파일 open 실패 !!!\n";
-			return -1;
+			exit(-1);
 		}
 		fin.close();
 		cout << patfile << "load !!!";
