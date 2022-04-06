@@ -10,7 +10,6 @@
 
 using namespace std;
 
-//
 //class MainHandler
 //{
 //
@@ -20,7 +19,6 @@ using namespace std;
 //{
 //
 //};
-//
 class PatientHandler
 {
 public:

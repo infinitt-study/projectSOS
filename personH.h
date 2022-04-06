@@ -1,6 +1,9 @@
 #ifndef personH
 #define personH
 
+#include <iostream>
+#include <cstring>
+
 class Person
 {
 protected:

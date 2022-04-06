@@ -8,6 +8,7 @@
 
 class Doctor : public Person
 {
+	
 public:
 
 };
