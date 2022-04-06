@@ -8,12 +8,23 @@ using namespace std;
 
 #include "personH.h"
 
-class Patient : Person
+class Patient : public Person
 {
 public:
-	// 입력
-	// 출력
-	// 검색
-	// 저장
+	// 정보 입력
+	// 환자 자신의 정보 출력
+	// 환자 자신의 정보 삭제
+	void SOS() // 위급 여부
+	{
+
+	}
+	void inputPatient() // 개인정보 입력
+	{
+
+	}
+	void chargedDoctor() // 담당의사
+	{
+
+	}
 };
 #endif
