@@ -20,9 +20,30 @@ class DoctorHandler : public Doctor
 public:
 	bool doc_Login()
 	{
+		// 작성하기
+		cout << "'의사' 권한으로 로그인 되었습니다." << endl;
 		return true;
 	}
-	void saveDoctor()
+	void doc_Signin() {
+		char name[20], ID[20], PW[20];
+		int YY, MM, DD;
+
+		cout << "회원가입을 진행합니다." << endl;
+		cout << "이름은 ? ";
+		cin >> name;
+		cout << "아이디는 ? ";
+		cin >> ID;
+		cout << "비밀번호는 ? ";
+		cin >> PW;
+		cout << "태어난 연도는 ? ";
+		cin >> YY;
+		cout << "태어난 월은 ? ";
+		cin >> MM;
+		cout << "태어난 일은 ? ";
+		cin >> DD;
+
+	}
+	void doc_Save()
 	{
 		const char* file = docfile;
 
@@ -46,7 +67,7 @@ public:
 		printf(" Save !!! \n");
 	}
 
-	void loadDoctor()
+	void doc_Load()
 	{
 		const char* file = docfile;
 
