@@ -25,7 +25,7 @@ public:
 		if (!fout)
 		{
 			cout << "환자 리스트 파일 stream 실패 !!!\n";
-			return -1;
+			return;
 		}
 
 		fout.write(배열 / 데이터크기);
