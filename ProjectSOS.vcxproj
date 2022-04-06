@@ -139,10 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="docHandlerH.cpp" />
+    <ClCompile Include="doctorH.cpp" />
+    <ClCompile Include="personH.cpp" />
     <ClCompile Include="projectSOS_Method.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="docHandlerH.h" />
+    <ClInclude Include="doctorH.h" />
+    <ClInclude Include="personH.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

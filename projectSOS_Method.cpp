@@ -4,17 +4,12 @@
 #include <fstream>
 #include <vector>
 
+#include "personH.h"
+#include "docHandlerH.h"
+
+
 using namespace std;
-//
-//class Person
-//{
-//protected:
-//	int PK;
-//	char *name;
-//	char *ID;
-//	char *PW;
-//	int birth;
-//};
+
 //
 //class MainHandler
 //{
@@ -26,41 +21,15 @@ using namespace std;
 //
 //};
 //
-//class PatientHandler
-//{
-//	pat_Login()
-//	{
-//
-//	}
-//
-//	pat_Input()
-//	{
-//
-//	}
-//
-//	pat_Output()
-//	{
-//
-//	}
-//} pat;
-//
-//class Doctor : Person
-//{
-//
-//};
-//
-//class DoctorHandler
-//{
-//	doc_Login()
-//	{
-//
-//	}
-//} doc;
-//
-//class Admin : Person
-//{
-//	
-//};
+class PatientHandler
+{
+public:
+	bool pat_Login()
+	{
+		return true;
+	}
+
+} pat;
 
 class AdminHandler
 {
@@ -106,20 +75,25 @@ public:
 		}
 
 	}*/
-	void admin_Output(const int _PK, const char *_name, const char *_ID, const int birth)
+	/*void admin_Output(const int _PK, const char *_name, const char *_ID, const int birth)
 	{
 		for (; _PK <  ; _PK++) {
 			cout << "환자의 이름(성명) : " << _name << "\n" 
 				<< _name << " 환자의 ID : " << _ID << "\n"
 				<< "환자의 생년월일 : " << birth;
 		}
-	}
+	}*/
 };
 
 int main() {
 	int role = 0;
 	bool login = false;
 	AdminHandler admin_handler;
+	DoctorHandler doc_handler;
+	PatientHandler pat_handler;
+
+	doc_handler.loadDoctor();
+
 
 	//로그인 확인
 	while (!login) {
@@ -130,9 +104,11 @@ int main() {
 		case 1: //admin
 			login = admin_handler.admin_Login();
 			break;
-		case 2: //pat
+		case 2:
+			login = doc_handler.doc_Login();
 			break;
-		case 3: //doc
+		case 3:
+			login = pat_handler.pat_Login();
 			break;
 		default:
 			cout << "잘못된 입력입니다." << endl;
