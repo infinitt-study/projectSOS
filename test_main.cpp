@@ -18,21 +18,12 @@ int main() {
 	DoctorHandler doc_handler;
 	PatientHandler pat_handler;
 
-	/*Doctor d1;
-
-	d1.setInfo("ÇýÁ¤", "yu", "1234", 97, 7, 24);
-	d1.showAll();
-
-	Doctor d2;
-	d2.setInfo("»óÈÆ", "hoon", "1234", 97, 7, 24);
-	d2.showAll();*/
-
 	doc_handler.doc_Signin();
 	doc_handler.doc_Signin();
 	cout << endl;
 	doc_handler.doc_List();
 
-
+	doc_handler.doc_Find();
 	
 
 }

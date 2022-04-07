@@ -77,7 +77,7 @@ public:
 				if (strcmp(getname, name) == 0)
 				{
 					found = 1;
-					//doctor[i].showDoc();
+					doctor[i].showDoc();
 				}
 			}
 			if (!found)

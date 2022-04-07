@@ -9,6 +9,7 @@
 using namespace std;
 
 #include "personH.h"
+#include "patHandlerH.h"
 
 class Doctor : public Person
 {
@@ -30,6 +31,7 @@ public:
 	}
 	void setInfo(const char* _name, const char* _ID, const char* _PW, int _YY, int _MM, int _DD) {
 		Person::setInfo(_name, _ID, _PW, _YY, _MM, _DD);
+		toPatList.push_back(1);
 		PK = docPK;
 		docPK++;
 	}
@@ -75,20 +77,22 @@ public:
 		return toPatList;
 	}
 	// 환자 class 필요
-	//void showPatList() {// 담당한 환자 이름 리스트 띄우기
-	//	int i;
-	//	for(i = 0;i<lengthPat()-1; i++){
-	//		cout << Patient::getPatName(toPatList[i]) << ", ";
-	//		// PK 값에 해당하는 환자 이름 출력
-	//	}
-	//	cout << Patient::getPatName(toPatList[i]);
-	//}
-	//void showDoc() {
-	//	cout << "이름 : " << name << "\t";
-	//	cout << "생년월일 : " << YY << '/' << MM << '/' << DD << "\t";
-	//	cout << "ID : " << ID << endl;
-	//	cout << "담당환자 : " << showPatList() << endl;
-	//}
+	void showPatList() {// 담당한 환자 이름 리스트 띄우기
+		int i;
+		for(i = 0;i<lengthPat()-1; i++){
+			cout << PatientHandler::getPatName(toPatList[i]) << ", ";
+			// PK 값에 해당하는 환자 이름 출력
+		}
+		cout << PatientHandler::getPatName(toPatList[i]);
+	}
+	void showDoc() {
+		cout << "이름 : " << name << "\t";
+		cout << "생년월일 : " << YY << '/' << MM << '/' << DD << "\t";
+		cout << "ID : " << ID << endl;
+		cout << "담당환자 : ";
+		showPatList();
+		cout << endl;
+	}
 	void showAll() {
 		cout << PK << "\t" << name << "\t" << ID << "\t"
 			<< YY << '/' << MM << '/' << DD << "\t\t" << lengthPat() << endl;

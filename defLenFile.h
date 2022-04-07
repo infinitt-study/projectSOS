@@ -7,4 +7,6 @@
 
 #define docfile "doctor_list.dat"
 
+#define patfile "patient_list.dat"
+
 #endif // !defCharLen
