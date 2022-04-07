@@ -5,6 +5,7 @@
 #include <cstring>
 #include <fstream>
 #include <vector>
+#include <string>
 using namespace std;
 
 #include "patientH.h"
@@ -46,32 +47,32 @@ public:
 		new_patient.setInfo(name, ID, PW, YY, MM, DD);
 		patient.push_back(new_patient);
 	}
-	void pat_Find() {
-		char name[defNameLen], * getname;
-		int i, found;
+	//void pat_Find() {
+	//	char name[defNameLen], * getname;
+	//	int i, found;
 
-		while (1)
-		{
-			cout << "\n검색할 성명 ? (검색종료 : end) ";
-			cin.getline(name, defNameLen);
-			if (strcmp(name, "end") == 0)
-				break;
-			found = 0;
-			for (i = 0; i < patient.size(); i++)
-			{
-				getname = patient[i].getName();
-				cout << "내 정보 출력" << endl;
-				cout << "이름\t" << "ID\t" << "생년월일\t" << "담당환자 수" << endl;
-				if (strcmp(getname, name) == 0)
-				{
-					found = 1;
-					//patient[i].showDoc();
-				}
-			}
-			if (!found)
-				cout << name << "님은 조회되지 않습니다. " << endl;
-		}
-	}
+	//	while (1)
+	//	{
+	//		cout << "\n검색할 성명 ? (검색종료 : end) ";
+	//		cin.getline(name, defNameLen);
+	//		if (strcmp(name, "end") == 0)
+	//			break;
+	//		found = 0;
+	//		for (i = 0; i < patient.size(); i++)
+	//		{
+	//			getname = patient[i].getName();
+	//			cout << "내 정보 출력" << endl;
+	//			cout << "이름\t" << "ID\t" << "생년월일\t" << "담당환자 수" << endl;
+	//			if (strcmp(getname, name) == 0)
+	//			{
+	//				found = 1;
+	//				//patient[i].showDoc();
+	//			}
+	//		}
+	//		if (!found)
+	//			cout << name << "님은 조회되지 않습니다. " << endl;
+	//	}
+	//}
 	//void savePatient() // 이진데이터 연결 및 save
 	//{
 	//	const char* file = patfile;
