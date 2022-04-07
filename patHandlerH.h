@@ -57,7 +57,11 @@ public:
 	//		exit(-1);
 	//	}
 
+<<<<<<< HEAD
 	//	//fout.write(배열 / 데이터크기);
+=======
+		/*fout.write(배열 / 데이터크기);
+>>>>>>> a4a2d33a128b0207a27df36de802554f426ee137
 
 	//	fout.close();
 

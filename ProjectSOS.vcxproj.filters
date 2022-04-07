@@ -64,5 +64,8 @@
     <ClInclude Include="admHandlerH.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="defLenFile.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

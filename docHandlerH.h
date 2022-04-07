@@ -1,5 +1,5 @@
-#ifndef _docHandlerH
-#define _docHandlerH
+#ifndef docHandlerH
+#define docHandlerH
 
 #include <iostream>
 #include <cstring>
@@ -8,24 +8,35 @@
 using namespace std;
 
 #include "doctorH.h"
+#include "defLenFile.h"
 
-#define docfile "doctor_list.dat"
 
 class DoctorHandler : public Doctor
 {
 	vector<Doctor> doctor;
 	vector<Doctor>::iterator doctorIt;
-	int Count=0;
 
 public:
+<<<<<<< HEAD
 	//bool doc_Login()
 	//{
 	//	// 작성하기
 	//	cout << "'의사' 권한으로 로그인 되었습니다." << endl;
 	//	return true;
 	//}
+=======
+	~DoctorHandler() {
+
+	}
+	bool doc_Login()
+	{
+		// 작성하기
+		cout << "'의사' 권한으로 로그인 되었습니다." << endl;
+		return true;
+	}
+>>>>>>> a4a2d33a128b0207a27df36de802554f426ee137
 	void doc_Signin() {
-		char name[20], ID[20], PW[20];
+		char name[defNameLen], ID[defIDLen], PW[defPWLen];
 		int YY, MM, DD;
 
 		cout << "회원가입을 진행합니다." << endl;
@@ -46,9 +57,51 @@ public:
 		new_doctor.setInfo(name, ID, PW, YY, MM, DD);
 		doctor.push_back(new_doctor);
 	}
+<<<<<<< HEAD
 	//void doc_Save()
 	//{
 	//	const char* file = docfile;
+=======
+	void doc_List() {
+		cout << endl;
+		cout << "의사 리스트 출력" << endl;
+		cout << "순번\t" << "이름\t" << "ID\t" << "생년월일\t" << "담당환자 수" << endl;
+		for (int i = 0; i < doctor.size(); i++) {
+			doctor[i].showAll();
+		}
+		
+		cout << "==============================================" << endl;
+		cout << "총 의사 수 : " << doctor.size() << endl;
+		cout << "==============================================" << endl;
+	}
+	void doc_Find() {
+		char name[defNameLen], * getname;
+		int i, found;
+
+		while (1)
+		{
+			cout << "\n검색할 성명 ? (검색종료:end) ";
+			cin.getline(name, defNameLen);
+			if (strcmp(name, "end") == 0)
+				break;
+			found = 0;
+			for (i = 0; i < doctor.size(); i++)
+			{
+				getname = doctor[i].getName();
+				if (strcmp(getname, name) == 0)
+				{
+					found = 1;
+					//doctor[i].showDoc();
+				}
+			}
+			if (!found)
+				cout << name << "님은 조회되지 않습니다. " << endl;
+		}
+	}
+	void doc_Save()
+	{
+		const char* file = docfile;
+>>>>>>> a4a2d33a128b0207a27df36de802554f426ee137
 
 	//	ofstream fout;
 	//	fout.open(file, ios::out | ios::binary); // 읽기모드

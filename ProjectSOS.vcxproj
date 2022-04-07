@@ -168,12 +168,18 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="admHandlerH.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="docHandlerH.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+=======
+    <ClInclude Include="admHandlerH.h" />
+    <ClInclude Include="defLenFile.h" />
+    <ClInclude Include="docHandlerH.h" />
+>>>>>>> a4a2d33a128b0207a27df36de802554f426ee137
     <ClInclude Include="doctorH.h" />
     <ClInclude Include="patHandlerH.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>

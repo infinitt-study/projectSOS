@@ -1,5 +1,5 @@
-#ifndef _doctorH
-#define _doctorH
+#ifndef doctorH
+#define doctorH
 
 #include <iostream>
 #include <cstring>
@@ -16,12 +16,17 @@ class Doctor : public Person
 	vector<int> toPatList; // 담당환자 리스트
 
 public:
-	Doctor() {}
+	Doctor() { }
+	Doctor(const Doctor& ref) {
+		Person::setInfo(ref.name, ref.ID, ref.PW, ref.YY, ref.MM, ref.DD);
+		PK = ref.PK;
+		toPatList = ref.toPatList;
+	}
 	~Doctor() {
-		delete name;
-		delete ID;
-		delete PW;
-		cout << PK << ": this is clear" << endl;
+		delete[] name;
+		delete[] ID;
+		delete[] PW;
+		//cout << PK << ": this is clear" << endl;
 	}
 	void setInfo(const char* _name, const char* _ID, const char* _PW, int _YY, int _MM, int _DD) {
 		Person::setInfo(_name, _ID, _PW, _YY, _MM, _DD);
@@ -45,11 +50,49 @@ public:
 	void sortPat() {
 		sort(toPatList.begin(), toPatList.end());
 	}
+	int getPK() {
+		return PK;
+	}
 	char* getName() {
 		return name;
 	}
+	char* getID() {
+		return ID;
+	}
+	char* getPW() {
+		return PW;
+	}
+	int getYY() {
+		return YY;
+	}
+	int getMM() {
+		return MM;
+	}
+	int getDD() {
+		return DD;
+	}
+	vector<int> getToPatList() {
+		return toPatList;
+	}
+	// 환자 class 필요
+	//void showPatList() {// 담당한 환자 이름 리스트 띄우기
+	//	int i;
+	//	for(i = 0;i<lengthPat()-1; i++){
+	//		cout << Patient::getPatName(toPatList[i]) << ", ";
+	//		// PK 값에 해당하는 환자 이름 출력
+	//	}
+	//	cout << Patient::getPatName(toPatList[i]);
+	//}
+	//void showDoc() {
+	//	cout << "이름 : " << name << "\t";
+	//	cout << "생년월일 : " << YY << '/' << MM << '/' << DD << "\t";
+	//	cout << "ID : " << ID << endl;
+	//	cout << "담당환자 : " << showPatList() << endl;
+	//}
 	void showAll() {
-		cout << PK << ": " << name << "// " << docPK << endl;
+		cout << PK << "\t" << name << "\t" << ID << "\t"
+			<< YY << '/' << MM << '/' << DD << "\t\t" << lengthPat() << endl;
+
 	}
 };
 #endif

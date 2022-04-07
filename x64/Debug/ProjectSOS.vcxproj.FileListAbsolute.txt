@@ -1,2 +1,0 @@
-D:\projectSOS\x64\Debug\ProjectSOS.exe
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\x64\Debug\ProjectSOS.exe
