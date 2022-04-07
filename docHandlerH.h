@@ -22,9 +22,24 @@ public:
 	}
 	bool doc_Login()
 	{
-		// 작성하기
-		cout << "'의사' 권한으로 로그인 되었습니다." << endl;
-		return true;
+		char ID[defIDLen], PW[defPWLen];
+		cout << "아이디를 입력하세요 : ";
+		cin.getline(ID, defIDLen);
+		cout << "비밀번호를 입력하세요 : ";
+		cin.getline(PW, defPWLen);
+
+		for (int i = 0; i < doctor.size(); i++) {
+			if (strcmp(ID, doctor[i].getID()) == 0) {
+				if (strcmp(PW, doctor[i].getPW()) == 0) {
+					cout << "'의사' 권한으로 로그인 되었습니다." << endl;
+					return true;
+				}
+				cout << "잘못된 PW 입력" << endl;
+				return false;
+			}
+		}
+		cout << "잘못된 ID 입력" << endl;
+		return false;
 	}
 	void doc_Signin() {
 		char name[defNameLen], ID[defIDLen], PW[defPWLen];
@@ -33,8 +48,16 @@ public:
 		cout << "회원가입을 진행합니다." << endl;
 		cout << "이름은 ? ";
 		cin.getline(name, defNameLen);
+		tryAgainID:
 		cout << "아이디는 ? ";
 		cin.getline(ID, defIDLen);
+		for (int i = 0; i < doctor.size(); i++) {
+			if (strcmp(ID, doctor[i].getID()) == 0) {
+				cout << "현재 사용하고 있는 아이디입니다." << endl;
+				cout << "다른 아이디를 입력해주세요." << endl;
+				goto tryAgainID;
+			}
+		}
 		cout << "비밀번호는 ? ";
 		cin.getline(PW, defPWLen);
 		cout << "태어난 연도는 ? ";

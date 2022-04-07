@@ -24,7 +24,15 @@ int main() {
 	doc_handler.doc_List();
 
 	doc_handler.doc_Find();
-
-	
+	bool log = false;
+	while (!log) {
+		if (doc_handler.doc_Login()) {
+			cout << "성공!!" << endl;
+			log = true;
+		}
+		else {
+			cout << "로그인 코드 실패!" << endl;
+		}
+	}
 
 }
