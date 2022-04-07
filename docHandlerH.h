@@ -17,14 +17,6 @@ class DoctorHandler : public Doctor
 	vector<Doctor>::iterator doctorIt;
 
 public:
-<<<<<<< HEAD
-	//bool doc_Login()
-	//{
-	//	// 작성하기
-	//	cout << "'의사' 권한으로 로그인 되었습니다." << endl;
-	//	return true;
-	//}
-=======
 	~DoctorHandler() {
 
 	}
@@ -34,7 +26,6 @@ public:
 		cout << "'의사' 권한으로 로그인 되었습니다." << endl;
 		return true;
 	}
->>>>>>> a4a2d33a128b0207a27df36de802554f426ee137
 	void doc_Signin() {
 		char name[defNameLen], ID[defIDLen], PW[defPWLen];
 		int YY, MM, DD;
@@ -52,23 +43,11 @@ public:
 		cin >> MM;
 		cout << "태어난 일은 ? ";
 		cin >> DD;
-<<<<<<< HEAD
-
-		Doctor new_doctor;
-		new_doctor.setInfo(name, ID, PW, YY, MM, DD);
-		doctor.push_back(new_doctor);
-=======
 		Doctor new_doctor;
 		new_doctor.setInfo(name, ID, PW, YY, MM, DD);
 		doctor.push_back(new_doctor);
 
->>>>>>> 048669c5c926527095261d6c1000234554256e78
 	}
-<<<<<<< HEAD
-	//void doc_Save()
-	//{
-	//	const char* file = docfile;
-=======
 	void doc_List() {
 		cout << endl;
 		cout << "의사 리스트 출력" << endl;
@@ -108,53 +87,52 @@ public:
 	void doc_Save()
 	{
 		const char* file = docfile;
->>>>>>> a4a2d33a128b0207a27df36de802554f426ee137
 
-	//	ofstream fout;
-	//	fout.open(file, ios::out | ios::binary); // 읽기모드
+		ofstream fout;
+		fout.open(file, ios::out | ios::binary); // 읽기모드
 
-	//	if (!fout)
-	//	{
-	//		cout << "saveDoctor() 파일 열기 오류";
-	//		exit(-1);
-	//	}
+		if (!fout)
+		{
+			cout << "saveDoctor() 파일 열기 오류";
+			exit(-1);
+		}
 
-	//	/*fout.write((char*)&Count, sizeof(Count));
+		/*fout.write((char*)&Count, sizeof(Count));
 
-	//	for (int i = 0; i < Count; i++)
-	//		fout.write((char*)(doctor[i]), sizeof(Doctor));*/
+		for (int i = 0; i < Count; i++)
+			fout.write((char*)(doctor[i]), sizeof(Doctor));*/
 
-	//	fout.close();
+		fout.close();
 
-	//	printf(docfile);
-	//	printf(" Save !!! \n");
-	//}
+		printf(docfile);
+		printf(" Save !!! \n");
+	}
 
-	//void doc_Load()
-	//{
-	//	const char* file = docfile;
+	void doc_Load()
+	{
+		const char* file = docfile;
 
-	//	ifstream fin;
-	//	fin.open(file, ios::in | ios::binary); // 읽기모드
+		ifstream fin;
+		fin.open(file, ios::in | ios::binary); // 읽기모드
 
-	//	if (!fin)
-	//	{
-	//		cout << "emp_load() 파일 열기 오류";
-	//		exit(-1);
-	//	}
+		if (!fin)
+		{
+			cout << "emp_load() 파일 열기 오류";
+			exit(-1);
+		}
 
-	//	/*fin.read((char*)&Count, sizeof(Count));
+		/*fin.read((char*)&Count, sizeof(Count));
 
-	//	for (int i = 0; i < Count; i++)
-	//	{
-	//		doctor[i] = new EMPLOYEE;
-	//		fin.read((char*)(empPtr[i]), sizeof(EMPLOYEE));
-	//	}*/
-	//	fin.close();
+		for (int i = 0; i < Count; i++)
+		{
+			doctor[i] = new EMPLOYEE;
+			fin.read((char*)(empPtr[i]), sizeof(EMPLOYEE));
+		}*/
+		fin.close();
 
-	//	printf(docfile);
-	//	printf(" Load!!! \n");
-	//}
+		printf(docfile);
+		printf(" Load!!! \n");
+	}
 };
 
 

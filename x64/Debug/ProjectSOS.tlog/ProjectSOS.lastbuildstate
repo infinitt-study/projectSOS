@@ -1,6 +1,2 @@
 PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.29.30133:VCServicingVersionCrtHeaders=14.29.30136:TargetPlatformVersion=10.0.19041.0:
-<<<<<<< HEAD
-Debug|x64|D:\projectSOS\|
-=======
 Debug|x64|C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\|
->>>>>>> 048669c5c926527095261d6c1000234554256e78
