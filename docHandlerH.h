@@ -18,12 +18,12 @@ class DoctorHandler : public Doctor
 	int Count=0;
 
 public:
-	bool doc_Login()
-	{
-		// 작성하기
-		cout << "'의사' 권한으로 로그인 되었습니다." << endl;
-		return true;
-	}
+	//bool doc_Login()
+	//{
+	//	// 작성하기
+	//	cout << "'의사' 권한으로 로그인 되었습니다." << endl;
+	//	return true;
+	//}
 	void doc_Signin() {
 		char name[20], ID[20], PW[20];
 		int YY, MM, DD;
@@ -41,63 +41,60 @@ public:
 		cin >> MM;
 		cout << "태어난 일은 ? ";
 		cin >> DD;
-<<<<<<< HEAD
-=======
+
 		Doctor new_doctor;
 		new_doctor.setInfo(name, ID, PW, YY, MM, DD);
 		doctor.push_back(new_doctor);
-
->>>>>>> 9b90af6f45c18cb0c8a1df18f71d8ec702194b9d
 	}
-	void doc_Save()
-	{
-		const char* file = docfile;
+	//void doc_Save()
+	//{
+	//	const char* file = docfile;
 
-		ofstream fout;
-		fout.open(file, ios::out | ios::binary); // 읽기모드
+	//	ofstream fout;
+	//	fout.open(file, ios::out | ios::binary); // 읽기모드
 
-		if (!fout)
-		{
-			cout << "saveDoctor() 파일 열기 오류";
-			exit(-1);
-		}
+	//	if (!fout)
+	//	{
+	//		cout << "saveDoctor() 파일 열기 오류";
+	//		exit(-1);
+	//	}
 
-		/*fout.write((char*)&Count, sizeof(Count));
+	//	/*fout.write((char*)&Count, sizeof(Count));
 
-		for (int i = 0; i < Count; i++)
-			fout.write((char*)(doctor[i]), sizeof(Doctor));*/
+	//	for (int i = 0; i < Count; i++)
+	//		fout.write((char*)(doctor[i]), sizeof(Doctor));*/
 
-		fout.close();
+	//	fout.close();
 
-		printf(docfile);
-		printf(" Save !!! \n");
-	}
+	//	printf(docfile);
+	//	printf(" Save !!! \n");
+	//}
 
-	void doc_Load()
-	{
-		const char* file = docfile;
+	//void doc_Load()
+	//{
+	//	const char* file = docfile;
 
-		ifstream fin;
-		fin.open(file, ios::in | ios::binary); // 읽기모드
+	//	ifstream fin;
+	//	fin.open(file, ios::in | ios::binary); // 읽기모드
 
-		if (!fin)
-		{
-			cout << "emp_load() 파일 열기 오류";
-			exit(-1);
-		}
+	//	if (!fin)
+	//	{
+	//		cout << "emp_load() 파일 열기 오류";
+	//		exit(-1);
+	//	}
 
-		/*fin.read((char*)&Count, sizeof(Count));
+	//	/*fin.read((char*)&Count, sizeof(Count));
 
-		for (int i = 0; i < Count; i++)
-		{
-			doctor[i] = new EMPLOYEE;
-			fin.read((char*)(empPtr[i]), sizeof(EMPLOYEE));
-		}*/
-		fin.close();
+	//	for (int i = 0; i < Count; i++)
+	//	{
+	//		doctor[i] = new EMPLOYEE;
+	//		fin.read((char*)(empPtr[i]), sizeof(EMPLOYEE));
+	//	}*/
+	//	fin.close();
 
-		printf(docfile);
-		printf(" Load!!! \n");
-	}
+	//	printf(docfile);
+	//	printf(" Load!!! \n");
+	//}
 };
 
 
