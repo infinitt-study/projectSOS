@@ -42,6 +42,7 @@ int main() {
 
 	pat_handler.pat_Find();
 	//pat_handler.showDocList();
+
 	bool log = false;
 	while (!log) {
 		if (pat_handler.pat_Login()) {

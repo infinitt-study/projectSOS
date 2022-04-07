@@ -51,7 +51,7 @@ public:
 	//	}
 	//	cout << DoctorHandler::getDocName(toDoc);
 	//}
-	void showPat()// 환자 자신의 정보 출력
+	void showPat()// 환자 자신의 정보
 	{
 		cout << "이름 : " << name
 			<< ", ID : " << ID
@@ -60,10 +60,14 @@ public:
 		cout << "주소 : " << address << endl;
 		cout << endl;
 	}
-	void showAll()//의사에게 보여지는 환자 정보
+	void showAll()//환자에게 보여지는 담당의사 정보
 	{
-		cout << name << "\t" 
-			<< YY << '/' << MM << '/' << DD << "\t\t" << lengthDoc() << endl;
+		cout << "==============================================" << endl;
+		cout << "  이름  " << "  생년월일  " << "            담당의사    " << endl;
+		cout << "==============================================" << endl;
+		cout << "  " << name 
+			<< "      " << YY << ' / ' << MM << ' / ' << DD << "\t\t" 
+			<< endl; // 담당의사
 	}
 	char* getID() 
 	{

@@ -80,7 +80,7 @@ public:
 	void pat_Info()
 	{
 		cout << "==============================================" << endl;
-		cout << "회원가입 정보 출력" << endl;
+		cout << "                 회원가입 정보                 " << endl;
 		cout << "==============================================" << endl;
 		for (int i = 0; i < patient.size(); i++) {
 			patient[i].showPat();
@@ -104,6 +104,7 @@ public:
 				{
 					found = 1;
 					patient[i].showPat();
+					patient[i].showAll();
 				}
 			}
 			if (!found)
