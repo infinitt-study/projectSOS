@@ -32,11 +32,11 @@ public:
 
 		cout << "회원가입을 진행합니다." << endl;
 		cout << "이름은 ? ";
-		cin >> name;
+		cin.getline(name, defNameLen);
 		cout << "아이디는 ? ";
-		cin >> ID;
+		cin.getline(ID, defIDLen);
 		cout << "비밀번호는 ? ";
-		cin >> PW;
+		cin.getline(PW, defPWLen);
 		cout << "태어난 연도는 ? ";
 		cin >> YY;
 		cout << "태어난 월은 ? ";
