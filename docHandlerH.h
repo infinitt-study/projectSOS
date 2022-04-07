@@ -41,7 +41,6 @@ public:
 		cin >> MM;
 		cout << "태어난 일은 ? ";
 		cin >> DD;
-
 	}
 	void doc_Save()
 	{
@@ -92,7 +91,6 @@ public:
 		printf(docfile);
 		printf(" Load!!! \n");
 	}
-
 };
 
 
