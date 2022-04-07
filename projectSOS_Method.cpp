@@ -17,7 +17,7 @@ int main() {
 	DoctorHandler doc_handler;
 	PatientHandler pat_handler;
 
-	doc_handler.loadDoctor();
+	doc_handler.doc_Load();
 
 
 	//로그인 확인

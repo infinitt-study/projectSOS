@@ -17,6 +17,7 @@ public:
 	{
 		return true;
 	}
+	/*
 	void savePatient() // 이진데이터 연결 및 save
 	{
 		const char* file = patfile;
@@ -47,7 +48,7 @@ public:
 		fin.close();
 		cout << patfile << "load !!!";
 	}
-	/*void admin_Input(const int _PK, const char* _name, const char* _ID, const int _birth)
+	void admin_Input(const int _PK, const char* _name, const char* _ID, const int _birth)
 	{
 		int _PK = 0;
 		char name[20], ID[20], birth[20];
@@ -67,6 +68,6 @@ public:
 			cin >> birth;
 		}
 	}*/
-} pat;
+};
 
 #endif
