@@ -52,10 +52,17 @@ public:
 		cin >> MM;
 		cout << "태어난 일은 ? ";
 		cin >> DD;
+<<<<<<< HEAD
 
 		Doctor new_doctor;
 		new_doctor.setInfo(name, ID, PW, YY, MM, DD);
 		doctor.push_back(new_doctor);
+=======
+		Doctor new_doctor;
+		new_doctor.setInfo(name, ID, PW, YY, MM, DD);
+		doctor.push_back(new_doctor);
+
+>>>>>>> 048669c5c926527095261d6c1000234554256e78
 	}
 <<<<<<< HEAD
 	//void doc_Save()

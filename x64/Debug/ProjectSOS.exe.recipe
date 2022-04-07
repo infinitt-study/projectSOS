@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
       <FullPath>D:\projectSOS\x64\Debug\ProjectSOS.exe</FullPath>
+=======
+      <FullPath>C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\x64\Debug\ProjectSOS.exe</FullPath>
+>>>>>>> 048669c5c926527095261d6c1000234554256e78
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
