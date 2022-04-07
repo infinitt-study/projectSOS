@@ -26,9 +26,9 @@ public:
 	}
 	~Patient()
 	{
-		delete name;
-		delete ID;
-		delete PW;
+		delete[] name;
+		delete[] ID;
+		delete[] PW;
 	}
 	// 정보 입력
 	void setInfo(const char* _name, const char* _ID, const char* _PW, int _YY, int _MM, int _DD, string _address) {
@@ -43,7 +43,14 @@ public:
 	/*void removePat(int _pk) {
 		patient.erase(remove(patient.begin(), patient.end(), _pk), patient.end());
 	}*/
-
+	//void showDocList()// 담당의사 정보 출력
+	//{
+	//	for (int i = 0; i < lengthDoc() - 1; i++) {
+	//		cout << DoctorHandler::getDocName(toDoc) << ", ";
+	//		//PK 값에 해당하는 의사 이름 출력
+	//	}
+	//	cout << DoctorHandler::getDocName(toDoc);
+	//}
 	void showPat()// 환자 자신의 정보 출력
 	{
 		cout << "이름 : " << name
@@ -52,6 +59,11 @@ public:
 			<< ", 생년월일 : " << YY << " / " << MM << " / " << DD << endl;
 		cout << "주소 : " << address << endl;
 		cout << endl;
+	}
+	void showAll()//의사에게 보여지는 환자 정보
+	{
+		cout << name << "\t" 
+			<< YY << '/' << MM << '/' << DD << "\t\t" << lengthDoc() << endl;
 	}
 	char* getID() 
 	{
@@ -64,6 +76,10 @@ public:
 	char* getName()
 	{
 		return name;
+	}
+	int lengthDoc()
+	{
+		return toDoc;
 	}
 	//void SOS()
 	//{}// 위급 여부

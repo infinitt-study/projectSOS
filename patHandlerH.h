@@ -17,6 +17,8 @@ class PatientHandler : public Patient
 	vector<Patient>::iterator patientIt;
 
 public:
+	~PatientHandler()
+	{	}
 	bool pat_Login()
 	{
 		char ID[defIDLen], PW[defPWLen];
@@ -79,6 +81,7 @@ public:
 	{
 		cout << "==============================================" << endl;
 		cout << "회원가입 정보 출력" << endl;
+		cout << "==============================================" << endl;
 		for (int i = 0; i < patient.size(); i++) {
 			patient[i].showPat();
 		}
