@@ -9,7 +9,7 @@
 using namespace std;
 
 #include "patientH.h"
-#define patfile "patient_list.dat"
+#include "defLenFile.h"
 
 class PatientHandler : public Person
 {
@@ -22,17 +22,18 @@ public:
 	//	return true;
 	//}
 	void pat_Signin() {
-		char name[20], ID[20], PW[20];
+		char name[defNameLen], ID[defIDLen], PW[defPWLen];
 		string address;
 		int YY, MM, DD;
 
 		cout << "회원가입을 진행합니다." << endl;
 		cout << "이름은 ? ";
-		cin >> name;
+		cin.getline(name, defNameLen);
 		cout << "아이디는 ? ";
-		cin >> ID;
+		cin.getline(ID, defIDLen);
+		// 아이디 중복확인
 		cout << "비밀번호는 ? ";
-		cin >> PW;
+		cin.getline(PW, defPWLen);
 		cout << "태어난 연도는 ? ";
 		cin >> YY;
 		cout << "태어난 월은 ? ";
@@ -97,5 +98,10 @@ public:
 	//		}
 	//	}
 	//}
+
+	static const char* getPatName(int _PK) {
+		//PK을 통해서 name
+		return "hhh";
+	}
 };
 #endif
