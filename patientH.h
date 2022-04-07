@@ -12,9 +12,9 @@ using namespace std;
 
 class Patient : public Person
 {
-	static int patPK;
-	string address;
-	int toDoc;
+	static int patPK;//환자 고유번호
+	string address;//환자 주소(string 타입)
+	int toDoc;//환자 담당 의사의 고유 번호
 
 public:
 	Patient() {}
@@ -51,7 +51,7 @@ public:
 	//	}
 	//	cout << DoctorHandler::getDocName(toDoc);
 	//}
-	void showPat()// 환자 자신의 정보
+	void showPat()//환자 자신의 정보
 	{
 		cout << "이름 : " << name
 			<< ", ID : " << ID
@@ -62,12 +62,9 @@ public:
 	}
 	void showAll()//환자에게 보여지는 담당의사 정보
 	{
-		cout << "==============================================" << endl;
-		cout << "  이름  " << "  생년월일  " << "            담당의사    " << endl;
-		cout << "==============================================" << endl;
 		cout << "  " << name 
-			<< "      " << YY << ' / ' << MM << ' / ' << DD << "\t\t" 
-			<< endl; // 담당의사
+			<< "      " << YY << " / " << MM << " / " << DD << "\t\t"
+			<< endl; // 담당의사 정보 둘어가는 곳
 	}
 	char* getID() 
 	{
@@ -80,10 +77,6 @@ public:
 	char* getName()
 	{
 		return name;
-	}
-	int lengthDoc()
-	{
-		return toDoc;
 	}
 	//void SOS()
 	//{}// 위급 여부
