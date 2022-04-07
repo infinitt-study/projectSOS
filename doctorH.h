@@ -9,7 +9,6 @@
 using namespace std;
 
 #include "personH.h"
-#include "patHandlerH.h"
 
 class Doctor : public Person
 {
@@ -27,7 +26,6 @@ public:
 		delete[] name;
 		delete[] ID;
 		delete[] PW;
-		//cout << PK << ": this is clear" << endl;
 	}
 	void setInfo(const char* _name, const char* _ID, const char* _PW, int _YY, int _MM, int _DD) {
 		Person::setInfo(_name, _ID, _PW, _YY, _MM, _DD);
@@ -64,26 +62,21 @@ public:
 	char* getPW() {
 		return PW;
 	}
-	int getYY() {
-		return YY;
-	}
-	int getMM() {
-		return MM;
-	}
-	int getDD() {
-		return DD;
-	}
 	vector<int> getToPatList() {
 		return toPatList;
 	}
 	// 환자 class 필요
 	void showPatList() {// 담당한 환자 이름 리스트 띄우기
-		int i;
-		for(i = 0;i<lengthPat()-1; i++){
-			cout << PatientHandler::getPatName(toPatList[i]) << ", ";
-			// PK 값에 해당하는 환자 이름 출력
+		if (lengthPat() != 0) {
+			int i;
+			for (i = 0; i < lengthPat() - 1; i++) {
+				cout << toPatList[i] << "번, ";
+				// PK 값에 해당하는 환자 이름 출력
+			}
+			cout << toPatList[i] << "번";
 		}
-		cout << PatientHandler::getPatName(toPatList[i]);
+		else
+			cout << "없음";
 	}
 	void showDoc() {
 		cout << "이름 : " << name << "\t";
@@ -93,10 +86,9 @@ public:
 		showPatList();
 		cout << endl;
 	}
-	void showAll() {
+	void showDocBref() {
 		cout << PK << "\t" << name << "\t" << ID << "\t"
 			<< YY << '/' << MM << '/' << DD << "\t\t" << lengthPat() << endl;
-
 	}
 };
 #endif

@@ -39,6 +39,9 @@
     <ClCompile Include="test_main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="timetest.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">
@@ -67,5 +70,8 @@
     <ClInclude Include="defLenFile.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="SOSsignal.txt" />
   </ItemGroup>
 </Project>

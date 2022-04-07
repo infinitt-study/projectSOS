@@ -9,7 +9,7 @@ using namespace std;
 #include "docHandlerH.h"
 #include "patHandlerH.h"
 
-class AdminHandler
+class AdminHandler : public DoctorHandler, public PatientHandler
 {
 public:
 	bool admin_Login()

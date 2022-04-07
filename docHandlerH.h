@@ -5,21 +5,24 @@
 #include <cstring>
 #include <fstream>
 #include <vector>
+
+#include<time.h>
 using namespace std;
 
 #include "doctorH.h"
+#include "patHandlerH.h"
 #include "defLenFile.h"
 
 
 class DoctorHandler : public Doctor
 {
+	int myPK;
 	vector<Doctor> doctor;
 	vector<Doctor>::iterator doctorIt;
+	Doctor *myDoc = NULL;
 
 public:
-	~DoctorHandler() {
 
-	}
 	bool doc_Login()
 	{
 		char ID[defIDLen], PW[defPWLen];
@@ -31,7 +34,10 @@ public:
 		for (int i = 0; i < doctor.size(); i++) {
 			if (strcmp(ID, doctor[i].getID()) == 0) {
 				if (strcmp(PW, doctor[i].getPW()) == 0) {
-					cout << "'의사' 권한으로 로그인 되었습니다." << endl;
+					myPK = doctor[i].getPK();
+					myDoc = &doctor[i];
+
+					cout << doctor[i].getName() << "님 로그인 되었습니다." << endl;
 					return true;
 				}
 				cout << "잘못된 PW 입력" << endl;
@@ -39,6 +45,11 @@ public:
 			}
 		}
 		cout << "잘못된 ID 입력" << endl;
+		return false;
+	}
+	bool doc_Logout() {
+		cout << myDoc->getName() << "님 로그아웃 되었습니다." << endl;
+		myDoc = NULL;
 		return false;
 	}
 	void doc_Signin() {
@@ -67,17 +78,17 @@ public:
 		cout << "태어난 일은 ? ";
 		cin >> DD;
 		cin.ignore();
+
 		Doctor new_doctor;
 		new_doctor.setInfo(name, ID, PW, YY, MM, DD);
 		doctor.push_back(new_doctor);
-
 	}
 	void doc_List() {
 		cout << endl;
 		cout << "의사 리스트 출력" << endl;
 		cout << "순번\t" << "이름\t" << "ID\t" << "생년월일\t" << "담당환자 수" << endl;
 		for (int i = 0; i < doctor.size(); i++) {
-			doctor[i].showAll();
+			doctor[i].showDocBref();
 		}
 		
 		cout << "==============================================" << endl;
@@ -106,7 +117,7 @@ public:
 			}
 			if (!found)
 				cout << name << "님은 조회되지 않습니다. " << endl;
-		}
+		} // main에서 환자 리스트 보여주기
 	}
 	void doc_Save()
 	{
@@ -157,6 +168,44 @@ public:
 		printf(docfile);
 		printf(" Load!!! \n");
 	}
+	int SOS() {
+
+		int PK;
+		ifstream fin(SOSfile);
+
+		if (!fin) {
+			cout << "파일열기 실패!!!" << endl;
+			return 0;
+		}
+		fin >> PK;
+
+		fin.close();
+		if ((PK != 0) & (myDoc!=NULL)) {
+			for (int i = 0; i < myDoc->lengthPat(); i++) {
+				if (PK == myDoc->showPat(i)) {
+					cout << endl;
+					cout << endl;
+					cout << "==============================================" << endl;
+					cout << "==============================================" << endl;
+					cout << PK << "번 환자가 SOS 신호를 보냈습니다" << endl;
+					cout << "==============================================" << endl;
+					cout << "==============================================" << endl;
+					cout << endl;
+					cout << endl;
+					return PK;
+
+				}
+			}
+			cout << PK << "번 환자가 위급하지만 담당 환자가 아닙니다" << endl;
+			return 0;
+
+		}
+		return 0;
+	}
+
+
+	friend void PatientHandler::pat_ToDoc(DoctorHandler& doc_handler);
+
 };
 
 

@@ -9,15 +9,19 @@
 using namespace std;
 
 #include "personH.h"
+//#include "docHandlerH.h"
 
 class Patient : public Person
 {
 	static int patPK;//환자 고유번호
 	string address;//환자 주소(string 타입)
-	int toDoc;//환자 담당 의사의 고유 번호
+	char *toDoc;//환자 담당 의사의 고유 번호
 
 public:
-	Patient() {}
+	Patient() {
+		address = "";
+		toDoc = NULL;
+	}
 	Patient(const Patient& ref) {
 		Person::setInfo(ref.name, ref.ID, ref.PW, ref.YY, ref.MM, ref.DD);
 		address = ref.address;
@@ -29,42 +33,41 @@ public:
 		delete[] name;
 		delete[] ID;
 		delete[] PW;
+		delete[] toDoc;
 	}
 	// 정보 입력
 	void setInfo(const char* _name, const char* _ID, const char* _PW, int _YY, int _MM, int _DD, string _address) {
 		Person::setInfo(_name, _ID, _PW, _YY, _MM, _DD);
 
 		address = _address;
-		toDoc = 0;
 		PK = patPK;
 		patPK++;
 	}
-	// 환자 자신의 정보 삭제
-	/*void removePat(int _pk) {
-		patient.erase(remove(patient.begin(), patient.end(), _pk), patient.end());
-	}*/
-	//void showDocList()// 담당의사 정보 출력
-	//{
-	//	for (int i = 0; i < lengthDoc() - 1; i++) {
-	//		cout << DoctorHandler::getDocName(toDoc) << ", ";
-	//		//PK 값에 해당하는 의사 이름 출력
-	//	}
-	//	cout << DoctorHandler::getDocName(toDoc);
-	//}
+	void setDocName(char *_name) {
+		toDoc = new char[strlen(_name)+1];
+		strcpy(toDoc, _name);
+	}
+	void showDocList()// 담당의사 정보 출력
+	{
+		if (toDoc == NULL)
+			cout << "없음";
+		else
+			cout << toDoc;
+	}
 	void showPat()//환자 자신의 정보
 	{
-		cout << "이름 : " << name
-			<< ", ID : " << ID
-			<< ", PW : " << PW
+		cout << "이름 : " << name << "\t"
+			<< ", ID : " << ID << "\t"
 			<< ", 생년월일 : " << YY << " / " << MM << " / " << DD << endl;
 		cout << "주소 : " << address << endl;
 		cout << endl;
 	}
-	void showAll()//환자에게 보여지는 담당의사 정보
+	void showPatBref()//환자에게 보여지는 담당의사 정보
 	{
-		cout << "  " << name 
-			<< "      " << YY << " / " << MM << " / " << DD << "\t\t"
-			<< endl; // 담당의사 정보 둘어가는 곳
+		cout << "  " << name
+			<< "\t" << YY << " / " << MM << " / " << DD << "\t\t";
+		showDocList(); // 담당의사 정보 들어가는 곳
+		cout << endl;
 	}
 	char* getID() 
 	{
@@ -78,6 +81,10 @@ public:
 	{
 		return name;
 	}
+	int getPK() {
+		return PK;
+	}
+
 	//void SOS()
 	//{}// 위급 여부
 };

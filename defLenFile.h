@@ -8,5 +8,9 @@
 #define docfile "doctor_list.dat"
 
 #define patfile "patient_list.dat"
+#define SOSfile "SOSsignal.txt"
+
+#define chk_sec 2 // 2√ 
+
 
 #endif // !defCharLen
