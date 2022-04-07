@@ -1,5 +1,5 @@
-#ifndef docHandlerH
-#define docHandlerH
+#ifndef _docHandlerH
+#define _docHandlerH
 
 #include <iostream>
 #include <cstring>
@@ -15,7 +15,7 @@ class DoctorHandler : public Doctor
 {
 	vector<Doctor> doctor;
 	vector<Doctor>::iterator doctorIt;
-	int Count;
+	int Count=0;
 
 public:
 	bool doc_Login()
@@ -41,6 +41,9 @@ public:
 		cin >> MM;
 		cout << "태어난 일은 ? ";
 		cin >> DD;
+		Doctor new_doctor;
+		new_doctor.setInfo(name, ID, PW, YY, MM, DD);
+		doctor.push_back(new_doctor);
 
 	}
 	void doc_Save()
