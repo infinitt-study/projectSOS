@@ -46,9 +46,18 @@ public:
 		cout << "회원가입을 진행합니다." << endl;
 		cout << "이름은 ? ";
 		cin.getline(name, defNameLen);
+		tryAgainID: // 아이디 중복확인
 		cout << "아이디는 ? ";
 		cin.getline(ID, defIDLen);
-		// 아이디 중복확인
+		for (int i = 0; i < patient.size(); i++) 
+		{
+			if (strcmp(ID, patient[i].getID()) == 0)
+			{
+				cout << "현재 사용하고 있는 아이디입니다." << endl;
+				cout << "다른 아이디를 입력해주세요." << endl;
+				goto tryAgainID;
+			}
+		}
 		cout << "비밀번호는 ? ";
 		cin.getline(PW, defPWLen);
 		cout << "태어난 연도는 ? ";

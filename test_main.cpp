@@ -19,7 +19,7 @@ int main() {
 	DoctorHandler doc_handler;
 	PatientHandler pat_handler;
 
-	doc_handler.doc_Signin();
+	/*doc_handler.doc_Signin();
 	doc_handler.doc_Signin();
 	cout << endl;
 	doc_handler.doc_List();
@@ -34,9 +34,9 @@ int main() {
 		else {
 			cout << "로그인 코드 실패!" << endl;
 		}
-	}
+	}*/
 
-	/*pat_handler.pat_Signin();
+	pat_handler.pat_Signin();
 	cout << endl;
 	pat_handler.pat_Info();
 
@@ -51,6 +51,6 @@ int main() {
 		else {
 			cout << "로그인 코드 실패!" << endl;
 		}
-	}*/
+	}
 
 }
