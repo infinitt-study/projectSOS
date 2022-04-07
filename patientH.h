@@ -44,6 +44,10 @@ public:
 		cout << "이름 : " << name << ", ID : " << ID << ", PW : " << PW << ", 생년월일 : " << YY << "/" << MM << "/" << DD << endl;
 		cout << "주소 : " << address << endl;
 	}
+	void* getName()
+	{
+		return name;
+	}
 	//void SOS()
 	//{}// 위급 여부
 };
