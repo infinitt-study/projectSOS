@@ -11,6 +11,7 @@ using namespace std;
 #include "admHandlerH.h"
 
 int Doctor::docPK = 1;
+int Patient::patPK = 1;
 
 int main() {
 
@@ -34,5 +35,22 @@ int main() {
 			cout << "로그인 코드 실패!" << endl;
 		}
 	}
+
+	/*pat_handler.pat_Signin();
+	cout << endl;
+	pat_handler.pat_Info();
+
+	pat_handler.pat_Find();
+
+	bool log = false;
+	while (!log) {
+		if (pat_handler.pat_Login()) {
+			cout << "성공!!" << endl;
+			log = true;
+		}
+		else {
+			cout << "로그인 코드 실패!" << endl;
+		}
+	}*/
 
 }

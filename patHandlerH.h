@@ -11,16 +11,33 @@ using namespace std;
 #include "patientH.h"
 #include "defLenFile.h"
 
-class PatientHandler : public Person
+class PatientHandler : public Patient
 {
 	vector<Patient> patient;
 	vector<Patient>::iterator patientIt;
 
 public:
-	//bool pat_Login()
-	//{
-	//	return true;
-	//}
+	bool pat_Login()
+	{
+		char ID[defIDLen], PW[defPWLen];
+		cout << "아이디를 입력하세요 : ";
+		cin.getline(ID, defIDLen);
+		cout << "비밀번호를 입력하세요 : ";
+		cin.getline(PW, defPWLen);
+
+		for (int i = 0; i < patient.size(); i++) {
+			if (strcmp(ID, patient[i].getID()) == 0) {
+				if (strcmp(PW, patient[i].getPW()) == 0) {
+					cout << "'환자' 권한으로 로그인 되었습니다." << endl;
+					return true;
+				}
+				cout << "잘못된 PW 입력" << endl;
+				return false;
+			}
+		}
+		cout << "잘못된 ID 입력" << endl;
+		return false;
+	}
 	void pat_Signin() {
 		char name[defNameLen], ID[defIDLen], PW[defPWLen];
 		string address;
@@ -40,39 +57,47 @@ public:
 		cin >> MM;
 		cout << "태어난 일은 ? ";
 		cin >> DD;
-		cout << "주소를 입력하세요."; // 주소는 띄어쓰기가 많아 getline으로 입력 받기 위해서 string 자료형 사용
+
+		cin.ignore();
+		cout << "주소는 ? "; // 주소는 띄어쓰기가 많아 getline으로 입력 받기 위해서 string 자료형 사용
 		getline(cin, address);
 
 		Patient new_patient;
-		new_patient.setInfo(name, ID, PW, YY, MM, DD);
+		new_patient.setInfo(name, ID, PW, YY, MM, DD, address);
 		patient.push_back(new_patient);
 	}
-	//void pat_Find() {
-	//	char name[defNameLen], * getname;
-	//	int i, found;
+	void pat_Info()
+	{
+		cout << "==============================================" << endl;
+		cout << "회원가입 정보 출력" << endl;
+		for (int i = 0; i < patient.size(); i++) {
+			patient[i].showPat();
+		}
+	}
+	void pat_Find() {
+		char name[defNameLen], * getname;
+		int i, found;
 
-	//	while (1)
-	//	{
-	//		cout << "\n검색할 성명 ? (검색종료 : end) ";
-	//		cin.getline(name, defNameLen);
-	//		if (strcmp(name, "end") == 0)
-	//			break;
-	//		found = 0;
-	//		for (i = 0; i < patient.size(); i++)
-	//		{
-	//			getname = patient[i].getName();
-	//			cout << "내 정보 출력" << endl;
-	//			cout << "이름\t" << "ID\t" << "생년월일\t" << "담당환자 수" << endl;
-	//			if (strcmp(getname, name) == 0)
-	//			{
-	//				found = 1;
-	//				//patient[i].showDoc();
-	//			}
-	//		}
-	//		if (!found)
-	//			cout << name << "님은 조회되지 않습니다. " << endl;
-	//	}
-	//}
+		while (1)
+		{
+			cout << "\n검색할 성명 ? (검색종료:end) ";
+			cin.getline(name, defNameLen);
+			if (strcmp(name, "end") == 0)
+				break;
+			found = 0;
+			for (i = 0; i < patient.size(); i++)
+			{
+				getname = patient[i].getName();
+				if (strcmp(getname, name) == 0)
+				{
+					found = 1;
+					patient[i].showPat();
+				}
+			}
+			if (!found)
+				cout << name << "님은 조회되지 않습니다. " << endl;
+		}
+	}
 	//void savePatient() // 이진데이터 연결 및 save
 	//{
 	//	const char* file = patfile;
