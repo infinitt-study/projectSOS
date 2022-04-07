@@ -10,7 +10,7 @@ using namespace std;
 #include "patientH.h"
 #define patfile "patient_list.dat"
 
-class PatientHandler : public Patient
+class PatientHandler : public Person
 {
 public:
 	bool pat_Login()

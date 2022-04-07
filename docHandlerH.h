@@ -43,10 +43,13 @@ public:
 		cin >> MM;
 		cout << "태어난 일은 ? ";
 		cin >> DD;
+<<<<<<< HEAD
+=======
 		Doctor new_doctor;
 		new_doctor.setInfo(name, ID, PW, YY, MM, DD);
 		doctor.push_back(new_doctor);
 
+>>>>>>> 9b90af6f45c18cb0c8a1df18f71d8ec702194b9d
 	}
 	void doc_List() {
 		cout << endl;
@@ -133,7 +136,6 @@ public:
 		printf(docfile);
 		printf(" Load!!! \n");
 	}
-
 };
 
 
