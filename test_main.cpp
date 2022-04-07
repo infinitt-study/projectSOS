@@ -71,10 +71,15 @@ int main() {
 
 
 	int sosPK = doc_handler.SOS();
-	if (sosPK) {
+	if (sosPK != 0) {
 		pat_handler.pat_FindSOSPK(sosPK);
 	}
 
+	cout << "test------------------" << endl;
+	sosPK = doc_handler.SOS();
+	if (sosPK) {
+		pat_handler.pat_FindSOSPK(sosPK);
+	}
 	cout << "test------------------" << endl;
 
 	bool logout_test = doc_handler.doc_Logout();

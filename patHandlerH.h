@@ -149,6 +149,7 @@ public:
 			}
 			if (!found)
 				cout << PK << "번 환자은 조회되지 않습니다. " << endl;
+			cin.ignore();
 		}
 	}
 	void pat_FindSOSPK(int PK) { // 번호로 SOS 요청한 환자 조회

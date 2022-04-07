@@ -2,6 +2,7 @@
 #include<time.h>
 
 using std::cout; using std::endl;
+
 #define chk_sec 2 // 2ÃÊ
 
 int main()
