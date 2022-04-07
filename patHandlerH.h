@@ -29,7 +29,7 @@ public:
 			exit(-1);
 		}
 
-		/*fout.write(배열 / 데이터크기);*/
+		/*fout.write(배열 / 데이터크기);
 
 		fout.close();
 

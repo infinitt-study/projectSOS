@@ -1,5 +1,5 @@
-#ifndef _admHandlerH
-#define _admHandlerH
+#ifndef admHandlerH
+#define admHandlerH
 #include <iostream>
 #include <cstring>
 #include <fstream>

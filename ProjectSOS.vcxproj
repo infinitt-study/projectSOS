@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="admHandlerH.h" />
+    <ClInclude Include="defLenFile.h" />
     <ClInclude Include="docHandlerH.h" />
     <ClInclude Include="doctorH.h" />
     <ClInclude Include="patHandlerH.h" />
