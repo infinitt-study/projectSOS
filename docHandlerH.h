@@ -28,6 +28,7 @@ public:
 	bool doc_Login()
 	{
 		char ID[defIDLen], PW[defPWLen];
+		cout << "\n==============================" << endl;
 		cout << "아이디를 입력하세요 : ";
 		cin.ignore();
 		cin.getline(ID, defIDLen);
@@ -44,10 +45,12 @@ public:
 					return true;
 				}
 				cout << "잘못된 PW 입력" << endl;
+				cin.ignore();
 				return false;
 			}
 		}
 		cout << "잘못된 ID 입력" << endl;
+		cin.ignore();
 		return false;
 	}
 	bool doc_Logout() {
@@ -59,7 +62,10 @@ public:
 		char name[defNameLen], ID[defIDLen], PW[defPWLen];
 		int YY, MM, DD;
 
+		cout << "\n==============================" << endl;
 		cout << "회원가입을 진행합니다." << endl;
+		cin.ignore();
+		cout << "==============================" << endl;
 		cout << "이름은 ? ";
 		cin.getline(name, defNameLen);
 		tryAgainID:

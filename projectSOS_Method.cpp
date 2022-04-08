@@ -15,6 +15,7 @@ using namespace std;
 int Doctor::docPK = 1;
 int Patient::patPK = 1;
 
+	//pat_handler.pat_ToDoc(doc_handler);
 void PatientHandler::pat_ToDoc(DoctorHandler& doc_handler) {
 	for (int i = 0; i < doc_handler.doctor.size(); i++) {
 		for (int j = 0; j < doc_handler.doctor[i].lengthPat(); j++) {
@@ -34,60 +35,114 @@ int main() {
 	AdminHandler admin_handler;
 	DoctorHandler doc_handler;
 	PatientHandler pat_handler;
-
 	//doc_handler.doc_Load();
 
 	//로그인 확인
 	while (!login) {
-		cout << "접근 권한 선택 [ 1 : 관리자(admin), 2 : 의사(doctor), 3 : 환자(patient) ] : ";
+		cout << "===========================================================================" << endl;
+		cout << "접근 권한 [ 1 : 관리자(admin), 2 : 의사(doctor), 3 : 환자(patient) ] " << endl;
+		cout << "\n접근 권한을 설정해주세요 : ";
 		cin >> role;
 		
 		switch (role) {
 		case 1: //admin(관리자)
 			login = admin_handler.admin_Login();
-			cin.clear(); // 문자열 비우기
-			cin.ignore(); // 버퍼 제거
 			break;
 
 		case 2: //의사
-			break;
-
-		case 3: //환자
-			/*re_login:
-			login = pat_handler.pat_Login();
-			cin.clear();
-			cin.ignore();
-			
-			if (!login) {
-				pat_handler.pat_Signin();
-				goto re_login;
-			}*/
-
 			while (!menu)
 			{
-				cout << "\n1. 로그인" << endl;
+			re_login_doc:
+				cout << "\n==============================" << endl;
+				cout << "1. 로그인" << endl;
 				cout << "2. 회원가입" << endl;
-				cout << "2. 가입 정보 검색" << endl;
-				cout << "Select (1 ~ 4) ";
+				cout << "\n메뉴를 선택해주세요 : ";
 				cin >> choice;
 
 				switch (choice)
 				{
-				case 1 : pat_handler.pat_Login();
+				case 1:
+					doc_handler.doc_Login();
+					while (!menu)
+					{
+						cout << "\n==============================" << endl;
+						cout << "1. 내 로그인 정보" << endl;
+						cout << "2. 담당 환자 추가" << endl;
+						cout << "3. 담당 환자 삭제" << endl;
+						cout << "4. 로그아웃" << endl;
+						cout << "\n메뉴를 선택해주세요 : ";
+						cin >> choice;
+
+						switch (choice)
+						{
+						case 1: doc_handler.myDocptr()->showDoc();
+							break;
+						case 2: doc_handler.doc_SetAddPat();
+							pat_handler.pat_List();
+							pat_handler.pat_ToDoc(doc_handler);
+							break;
+						case 3 : doc_handler.doc_SetRemovePat();
+							doc_handler.doc_SetRemovePat();
+							pat_handler.pat_ToDoc(doc_handler);
+							break;
+						case 4 : doc_handler.doc_Logout();
+							goto re_login_doc; // 로그아웃 후 다시 로그인/회원가입 화면
+							break;
+						}
+					}
+					break;
+				case 2: doc_handler.doc_Signin();
+					goto re_login_doc; // 회원가입 후 다시 로그인
+					break;
+				}
+			}
+			break;
+			break;
+
+		case 3: //환자
+			while (!menu)
+			{
+			re_login_pat:
+				cout << "\n==============================" << endl;
+				cout << "1. 로그인" << endl;
+				cout << "2. 회원가입" << endl;
+				cout << "\n메뉴를 선택해주세요 : ";
+				cin >> choice;
+
+				switch (choice)
+				{
+				case 1 :
+					pat_handler.pat_Login();
+					while (!menu)
+					{
+						cout << "\n==============================" << endl;
+						cout << "1. 내 로그인 정보" << endl;
+						cout << "2. 내 담당 의사 정보" << endl;
+						cout << "3. 로그아웃" << endl;
+						cout << "\n메뉴를 선택해주세요 : ";
+						cin >> choice;
+
+						switch (choice)
+						{
+						case 1: pat_handler.myPatptr()->showPat();
+							break;
+						case 2 : pat_handler.pat_ToDoc(doc_handler);
+							break;
+						case 3 : pat_handler.pat_Logout();
+							goto re_login_pat; // 로그아웃 후 다시 로그인/회원가입 화면
+							break;
+						}
+					}
 					break;
 				case 2: pat_handler.pat_Signin();
-					break;
-				case 3: pat_handler.pat_Info();
-					break;
-				case 4: pat_handler.pat_Find();
-					break;
-				case 5: menu = 0;
+					goto re_login_pat; // 회원가입 후 다시 로그인
 					break;
 				}
 			}
 			break;
 
 		default:
+			cout << endl;
 			cout << "잘못된 입력입니다." << endl;
 			cin.clear();
 			cin.ignore();

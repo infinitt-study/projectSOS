@@ -27,6 +27,7 @@ public:
 	bool pat_Login()
 	{
 		char ID[defIDLen], PW[defPWLen];
+		cout << "\n==============================" << endl;
 		cout << "아이디를 입력하세요 : ";
 		cin.ignore();
 		cin.getline(ID, defIDLen);
@@ -38,7 +39,8 @@ public:
 				if (strcmp(PW, patient[i].getPW()) == 0) {
 					myPK = patient[i].getPK();
 					myPat = &patient[i];
-
+					
+					cout << endl;
 					cout << patient[i].getName() << "님 로그인 되었습니다." << endl;
 					return true;
 				}
@@ -50,6 +52,7 @@ public:
 		return false;
 	}
 	bool pat_Logout() {
+		cout << endl;
 		cout << myPat->getName() << "님 로그아웃 되었습니다." << endl;
 		myPat = NULL;
 		return false;
@@ -59,7 +62,13 @@ public:
 		string address;
 		int YY, MM, DD;
 
+		cout << "\n==============================" << endl;
 		cout << "회원가입을 진행합니다." << endl;
+<<<<<<< HEAD
+=======
+		cin.ignore();
+		cout << "==============================" << endl;
+>>>>>>> fdf24ab361bdf152dd06532931e2fc421a6cd38b
 		cout << "이름은 ? ";
 		cin.getline(name, defNameLen);
 		tryAgainID: // 아이디 중복확인
