@@ -64,7 +64,7 @@ public:
 	}
 	void showPatBref()//환자에게 보여지는 담당의사 정보
 	{
-		cout << "  " << name
+		cout << "  " << PK << name
 			<< "\t" << YY << " / " << MM << " / " << DD << "\t\t";
 		showDocList(); // 담당의사 정보 들어가는 곳
 		cout << endl;

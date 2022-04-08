@@ -15,8 +15,8 @@ public:
 	bool admin_Login()
 	{
 		char _ID[20], _PW[20];
-
 		cout << "ID 입력 : ";
+		cin.ignore();
 		cin >> _ID;
 		cout << "PW 입력 : ";
 		cin >> _PW;

@@ -34,16 +34,22 @@ public:
 		docPK++;
 	}
 	void addPat(int _pat_pk) {
-		if (find(toPatList.begin(), toPatList.end(), _pat_pk) == toPatList.end()) // 1 명만 넣기
+		if (find(toPatList.begin(), toPatList.end(), _pat_pk) == toPatList.end()) {// 1 명만 넣기
 			toPatList.push_back(_pat_pk);
+			cout << _pat_pk << "번 환자를 담당환자로 추가했습니다.." << endl;
+		}
+		else
+			cout << _pat_pk << "번 환자는 이미 담당하고 있습니다." << endl;
 		// 환자 객체에 의사 PK 넣는법 구현하기!!
 	}
 	void removePat(int _pat_pk) {
 		toPatList.erase(remove(toPatList.begin(), toPatList.end(), _pat_pk), toPatList.end());
+		cout << _pat_pk << "번 환자를 담당환자에서 삭제했습니다." << endl;
 	}
 	int showPat(int i) {
 		return toPatList[i];
 	}
+	
 	int lengthPat() {
 		return toPatList.size();
 	}
@@ -66,10 +72,10 @@ public:
 		return toPatList;
 	}
 	// 환자 class 필요
-	void showPatList() {// 담당한 환자 이름 리스트 띄우기
-		if (lengthPat() != 0) {
+	void showPatList() {// 담당한 환자 PK 리스트 띄우기
+		if (toPatList.size() != 0) {
 			int i;
-			for (i = 0; i < lengthPat() - 1; i++) {
+			for (i = 0; i < toPatList.size() - 1; i++) {
 				cout << toPatList[i] << "번, ";
 				// PK 값에 해당하는 환자 이름 출력
 			}
@@ -87,8 +93,8 @@ public:
 		cout << endl;
 	}
 	void showDocBref() {
-		cout << PK << "\t" << name << "\t" << ID << "\t"
-			<< YY << '/' << MM << '/' << DD << "\t\t" << lengthPat() << endl;
+		cout << "  "  << PK << "\t" << name << "\t" << ID << "\t"
+			<< YY << '/' << MM << '/' << DD << "\t\t" << toPatList.size() << endl;
 	}
 };
 #endif

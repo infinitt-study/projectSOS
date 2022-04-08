@@ -25,6 +25,7 @@ public:
 	{
 		char ID[defIDLen], PW[defPWLen];
 		cout << "아이디를 입력하세요 : ";
+		cin.ignore();
 		cin.getline(ID, defIDLen);
 		cout << "비밀번호를 입력하세요 : ";
 		cin.getline(PW, defPWLen);
@@ -99,6 +100,21 @@ public:
 	void pat_ToDoc(DoctorHandler& doc_handler); // main에서 선언
 	// 담당의사 이름 가져오기
 
+	void pat_List() {
+		cout << endl;
+		cout << "환자 리스트 출력" << endl;
+		cout << "==============================================" << endl;
+		cout << "  순번\t" << "이름\t" << "생년월일\t" << "담당의사" << endl;
+		cout << "==============================================" << endl;
+		for (int i = 0; i < patient.size(); i++) {
+			patient[i].showPatBref();
+		}
+
+		cout << "==============================================" << endl;
+		cout << "총 환자 수 : " << patient.size() << endl;
+		cout << "==============================================" << endl;
+	}
+
 	void pat_Find() { // 이름으로 환자 조회
 		char name[defNameLen], * getname;
 		int i, found;
@@ -118,7 +134,7 @@ public:
 					found = 1;
 					patient[i].showPat();
 					cout << "==============================================" << endl;
-					cout << "  이름\t" << "생년월일  " << "\t\t담당의사" << endl;
+					cout << "  순번\t"<< "이름\t" << "생년월일\t" << "담당의사" << endl;
 					cout << "==============================================" << endl;
 					patient[i].showPatBref();
 				}

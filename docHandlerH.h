@@ -27,6 +27,7 @@ public:
 	{
 		char ID[defIDLen], PW[defPWLen];
 		cout << "아이디를 입력하세요 : ";
+		cin.ignore();
 		cin.getline(ID, defIDLen);
 		cout << "비밀번호를 입력하세요 : ";
 		cin.getline(PW, defPWLen);
@@ -86,7 +87,9 @@ public:
 	void doc_List() {
 		cout << endl;
 		cout << "의사 리스트 출력" << endl;
-		cout << "순번\t" << "이름\t" << "ID\t" << "생년월일\t" << "담당환자 수" << endl;
+		cout << "==============================================" << endl;
+		cout << "  순번\t" << "이름\t" << "ID\t" << "생년월일\t" << "담당환자 수" << endl;
+		cout << "==============================================" << endl;
 		for (int i = 0; i < doctor.size(); i++) {
 			doctor[i].showDocBref();
 		}
@@ -118,6 +121,30 @@ public:
 			if (!found)
 				cout << name << "님은 조회되지 않습니다. " << endl;
 		} // main에서 환자 리스트 보여주기
+	}
+	void doc_SetAddPat() { // 담당환자 추가
+		// main에서 pat_handler.pat_List(); 로 환자 리스트 출력하기
+		cout << endl << "환자 리스트에서 추가할 담당하는 환자 순번을 입력해주세요." << endl;
+		cout << "담당환자 순번은 ? " << endl;
+		int PK;
+		cin >> PK;
+		myDoc->addPat(PK);
+		cout << "현재 담당환자 : ";
+		myDoc->showPatList();
+		cout << endl;
+		// main 에서 PatientHandler::pat_ToDoc 실행해줘야 환자 정보까지 반영 가능
+	}
+	void doc_SetRemovePat() { // 담당환자 삭제
+		// main에서 pat_handler.pat_List(); 로 환자 리스트 출력하기
+		cout << endl << "환자 리스트에서 삭제할 담당하는 환자 순번을 입력해주세요." << endl;
+		cout << "담당환자 순번은 ? " << endl;
+		int PK;
+		cin >> PK;
+		myDoc->addPat(PK);
+		cout << "현재 담당환자 : ";
+		myDoc->showPatList();
+		cout << endl;
+		// main 에서 PatientHandler::pat_ToDoc 실행해줘야 환자 정보까지 반영 가능
 	}
 	void doc_Save()
 	{
@@ -202,7 +229,6 @@ public:
 		}
 		return 0;
 	}
-
 
 	friend void PatientHandler::pat_ToDoc(DoctorHandler& doc_handler);
 
