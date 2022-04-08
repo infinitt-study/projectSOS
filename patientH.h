@@ -15,7 +15,7 @@ class Patient : public Person
 {
 	static int patPK;//환자 고유번호
 	string address;//환자 주소(string 타입)
-	char *toDoc;//환자 담당 의사의 고유 번호
+	char *toDoc;//환자 담당 의사의 이름
 
 public:
 	Patient() {

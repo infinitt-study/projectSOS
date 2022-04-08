@@ -66,7 +66,10 @@ public:
 		cout << "회원가입을 진행합니다." << endl;
 		cin.ignore();
 		cout << "==============================" << endl;
+<<<<<<< HEAD
 
+=======
+>>>>>>> cc281b63362de4b13ef73a2d79ec591fe68d06be
 		cout << "이름은 ? ";
 		cin.getline(name, defNameLen);
 		tryAgainID: // 아이디 중복확인
@@ -204,9 +207,10 @@ public:
 		}
 
 		fout << patient.size() << endl;
-
+		cout << "gkgkgkgkkgkg" << endl;
 		for (int i = 0; i < patient.size(); i++) {
-			fout << patient[i].getName() << " ";
+			fout << "test" << endl;
+		/*	fout << patient[i].getName() << " ";
 			fout << patient[i].getID() << " ";
 			fout << patient[i].getPW() << " ";
 			fout << patient[i].getYY() << " ";
@@ -214,7 +218,7 @@ public:
 			fout << patient[i].getDD() << " ";
 			fout << patient[i].getAddr() << " ";
 			fout << patient[i].getToDoc()<< " ";
-			fout << patient[i].getPK() << endl;
+			fout << patient[i].getPK() << endl;*/
 		}
 
 		fout.close();
