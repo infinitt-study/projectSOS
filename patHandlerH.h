@@ -66,10 +66,6 @@ public:
 		cout << "회원가입을 진행합니다." << endl;
 		cin.ignore();
 		cout << "==============================" << endl;
-<<<<<<< HEAD
-
-=======
->>>>>>> cc281b63362de4b13ef73a2d79ec591fe68d06be
 		cout << "이름은 ? ";
 		cin.getline(name, defNameLen);
 		tryAgainID: // 아이디 중복확인

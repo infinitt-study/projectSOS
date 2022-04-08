@@ -35,9 +35,11 @@ int main() {
 	AdminHandler admin_handler;
 	DoctorHandler doc_handler;
 	PatientHandler pat_handler;
-	//doc_handler.doc_Load();
+	doc_handler.doc_Load();
+	pat_handler.pat_Load();
 
 	//로그인 확인
+	re_login_main:
 	while (!login) {
 		cout << "===========================================================================" << endl;
 		cout << "접근 권한 [ 1 : 관리자(admin), 2 : 의사(doctor), 3 : 환자(patient) ] " << endl;
@@ -46,7 +48,32 @@ int main() {
 		
 		switch (role) {
 		case 1: //admin(관리자) 권한
+			re_login_adm:
 			login = admin_handler.admin_Login();
+			if (!login)
+				goto re_login_adm; // 다시 로그인/회원가입 화면
+			while (!menu)
+			{
+				cout << "\n==============================" << endl;
+				cout << "1. 의사 리스트 보기" << endl;
+				cout << "2. 환자 리스트 보기" << endl;
+				cout << "3. 로그아웃" << endl;
+				cout << "\n메뉴를 선택해주세요 : ";
+				cin >> choice;
+
+				switch (choice)
+				{
+				case 1: doc_handler.doc_List();
+					break;
+				case 2:
+					pat_handler.pat_List();
+					break;
+				case 3:
+					login = false;
+					goto re_login_main; // 로그아웃 후 다시 로그인/회원가입 화면
+					break;
+				}
+			}
 			break;
 
 		case 2: //의사 권한
@@ -62,7 +89,10 @@ int main() {
 				switch (choice)
 				{
 				case 1:
-					doc_handler.doc_Login();
+					login = doc_handler.doc_Login();
+					if (!login)
+						goto re_login_doc; // 다시 로그인/회원가입 화면
+
 					while (!menu)
 					{
 						cout << "\n==============================" << endl;
@@ -85,14 +115,16 @@ int main() {
 							doc_handler.doc_SetRemovePat();
 							pat_handler.pat_ToDoc(doc_handler);
 							break;
-						case 4 : doc_handler.doc_Logout();
+						case 4 : login = doc_handler.doc_Logout();
 							goto re_login_doc; // 로그아웃 후 다시 로그인/회원가입 화면
 							break;
 						}
 					}
 					break;
 				case 2: doc_handler.doc_Signin();
-					goto re_login_doc; // 회원가입 후 다시 로그인
+					doc_handler.doc_Save();
+					pat_handler.pat_Save();
+					goto re_login_main; // 회원가입 후 다시 로그인
 					break;
 				}
 			}
@@ -111,7 +143,10 @@ int main() {
 				switch (choice)
 				{
 				case 1 :
-					pat_handler.pat_Login();
+					login = pat_handler.pat_Login();
+					if(!login)
+						goto re_login_pat; // 다시 로그인/회원가입 화면
+
 					while (!menu)
 					{
 						cout << "\n==============================" << endl;
@@ -127,14 +162,16 @@ int main() {
 							break;
 						case 2 : pat_handler.pat_ToDoc(doc_handler);
 							break;
-						case 3 : pat_handler.pat_Logout();
+						case 3 : login = pat_handler.pat_Logout();
 							goto re_login_pat; // 로그아웃 후 다시 로그인/회원가입 화면
 							break;
 						}
 					}
 					break;
 				case 2: pat_handler.pat_Signin();
-					goto re_login_pat; // 회원가입 후 다시 로그인
+					doc_handler.doc_Save();
+					pat_handler.pat_Save();
+					goto re_login_main; // 회원가입 후 다시 로그인
 					break;
 				}
 			}
@@ -142,7 +179,7 @@ int main() {
 
 		default:
 			cout << endl;
-			cout << "잘못된 입력입니다." << endl;
+			cout << "\n잘못된 입력입니다." << endl;
 			cin.clear();
 			cin.ignore();
 			break;
