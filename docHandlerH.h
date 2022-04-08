@@ -41,6 +41,7 @@ public:
 					myPK = doctor[i].getPK();
 					myDoc = &doctor[i];
 
+					cout << endl;
 					cout << doctor[i].getName() << "님 로그인 되었습니다." << endl;
 					return true;
 				}
@@ -54,6 +55,7 @@ public:
 		return false;
 	}
 	bool doc_Logout() {
+		cout << endl;
 		cout << myDoc->getName() << "님 로그아웃 되었습니다." << endl;
 		myDoc = NULL;
 		return false;
