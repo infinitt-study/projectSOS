@@ -85,11 +85,12 @@ public:
 			cout << "없음";
 	}
 	void showDoc() {
-		cout << "이름 : " << name << "\t";
-		cout << "생년월일 : " << YY << '/' << MM << '/' << DD << "\t";
-		cout << "ID : " << ID << endl;
+		cout << "이름 : " << name << "\t"
+			<< ", ID : " << ID << "\t"
+			<< ", 생년월일 : " << YY << " / " << MM << " / " << DD << endl;
 		cout << "담당환자 : ";
-		showPatList();
+		cout << endl;
+		showPatList(); // 담당환자 리스트
 		cout << endl;
 	}
 	void showDocBref() {
