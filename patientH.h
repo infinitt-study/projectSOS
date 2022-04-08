@@ -67,10 +67,13 @@ public:
 	}
 	void showPatBref()//환자에게 보여지는 담당의사 정보
 	{
-		cout << "  " << PK << name
+		cout << "  " << PK << "\t" << name
 			<< "\t" << YY << " / " << MM << " / " << DD << "\t\t";
 		showDocList(); // 담당의사 정보 들어가는 곳
 		cout << endl;
+	}
+	char* getToDoc() {
+		return toDoc;
 	}
 	char* getID() 
 	{
@@ -86,6 +89,18 @@ public:
 	}
 	int getPK() {
 		return PK;
+	}
+	int getYY() {
+		return YY;
+	}
+	int getMM() {
+		return MM;
+	}
+	int getDD() {
+		return DD;
+	}
+	string getAddr() {
+		return address;
 	}
 
 	//void SOS()

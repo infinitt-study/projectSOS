@@ -46,53 +46,6 @@ int main() {
 		
 		switch (role) {
 		case 1: //admin(관리자) 권한
-			while (!menu)
-			{
-			re_login_doc:
-				cout << "\n==============================" << endl;
-				cout << "1. 로그인" << endl;
-				cout << "2. 회원가입" << endl;
-				cout << "\n메뉴를 선택해주세요 : ";
-				cin >> choice;
-
-				switch (choice)
-				{
-				case 1:
-					doc_handler.doc_Login();
-					while (!menu)
-					{
-						cout << "\n==============================" << endl;
-						cout << "1. 내 로그인 정보" << endl;
-						cout << "2. 담당 환자 추가" << endl;
-						cout << "3. 담당 환자 삭제" << endl;
-						cout << "4. 로그아웃" << endl;
-						cout << "\n메뉴를 선택해주세요 : ";
-						cin >> choice;
-
-						switch (choice)
-						{
-						case 1: doc_handler.myDocptr()->showDoc();
-							break;
-						case 2: doc_handler.doc_SetAddPat();
-							pat_handler.pat_List();
-							pat_handler.pat_ToDoc(doc_handler);
-							break;
-						case 3: doc_handler.doc_SetRemovePat();
-							doc_handler.doc_SetRemovePat();
-							pat_handler.pat_ToDoc(doc_handler);
-							break;
-						case 4: doc_handler.doc_Logout();
-							goto re_login_doc; // 로그아웃 후 다시 로그인/회원가입 화면
-							break;
-						}
-					}
-					break;
-				case 2: doc_handler.doc_Signin();
-					goto re_login_doc; // 회원가입 후 다시 로그인
-					break;
-				}
-			}
-			break;
 			login = admin_handler.admin_Login();
 			break;
 
