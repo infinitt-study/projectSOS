@@ -21,6 +21,9 @@ class PatientHandler : public Patient
 	Patient *myPat = NULL;
 
 public:
+	Patient* myPatptr() {
+		return myPat;
+	}
 	bool pat_Login()
 	{
 		char ID[defIDLen], PW[defPWLen];
@@ -57,7 +60,6 @@ public:
 		int YY, MM, DD;
 
 		cout << "회원가입을 진행합니다." << endl;
-		cin.ignore();
 		cout << "이름은 ? ";
 		cin.getline(name, defNameLen);
 		tryAgainID: // 아이디 중복확인
@@ -183,36 +185,73 @@ public:
 			cout << PK << "번 환자은 조회되지 않습니다. " << endl;
 	}
 
-	//void savePatient() // 이진데이터 연결 및 save
-	//{
-	//	const char* file = patfile;
+	void pat_Save()
+	{
 
-	//	ofstream fout(patfile, ios::out | ios::binary);
-	//	if (!fout)
-	//	{
-	//		cout << "환자 리스트 파일 stream 실패 !!!\n";
-	//		exit(-1);
-	//	}
+		ofstream fout(patfile);
 
-	//	//fout.write(배열 / 데이터크기);
+		if (!fout)
+		{
+			cout << patfile << " 파일 열기 오류";
+			return;
+		}
 
-	//	fout.close();
+		fout << patient.size() << endl;
 
-	//	cout << patfile << "save !!!";
-	//}
-	//void loadPatient() // 이진데이터 load
-	//{
-	//	const char* file = patfile;
+		for (int i = 0; i < patient.size(); i++) {
+			fout << patient[i].getName() << " ";
+			fout << patient[i].getID() << " ";
+			fout << patient[i].getPW() << " ";
+			fout << patient[i].getYY() << " ";
+			fout << patient[i].getMM() << " ";
+			fout << patient[i].getDD() << " ";
+			fout << patient[i].getAddr() << " ";
+			fout << patient[i].getToDoc()<< " ";
+			fout << patient[i].getPK() << endl;
+		}
 
-	//	ifstream fin(patfile, ios::in | ios::binary);
-	//	if (!fin)
-	//	{
-	//		cout << "환자 리스트 파일 open 실패 !!!\n";
-	//		exit(-1);
-	//	}
-	//	fin.close();
-	//	cout << patfile << "load !!!";
-	//}
+		fout.close();
+
+		printf("\n=====환자 정보를 저장했습니다!!! \n");
+	}
+
+	void pat_Load()
+	{
+		ifstream fin(patfile);
+
+		if (!fin)
+		{
+			cout << patfile << " 파일 열기 오류";
+			return;
+		}
+
+		int n, PK, YY, MM, DD;
+		char Name[defNameLen], ID[defIDLen], PW[defPWLen], ToDoc[defNameLen];
+		string Addr;
+		Patient newPat;
+
+		fin >> n;
+
+		for (int i = 0; i < n; i++) {
+			fin >> Name;
+			fin >> ID;
+			fin >> PW;
+			fin >> YY;
+			fin >> MM;
+			fin >> DD;
+			fin >> Addr;
+			fin >> ToDoc;
+			fin >> PK;
+
+			newPat.setInfo(Name, ID, PW, YY, MM, DD, Addr);
+			newPat.setDocName(ToDoc);
+			patient.push_back(newPat);
+		}
+
+		fin.close();
+
+		printf("\n=====환자 정보를 불러왔습니다!!! \n");
+	}
 
 };
 #endif

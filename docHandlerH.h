@@ -22,7 +22,9 @@ class DoctorHandler : public Doctor
 	Doctor *myDoc = NULL;
 
 public:
-
+	Doctor* myDocptr() {
+		return myDoc;
+	}
 	bool doc_Login()
 	{
 		char ID[defIDLen], PW[defPWLen];
@@ -148,52 +150,74 @@ public:
 	}
 	void doc_Save()
 	{
-		const char* file = docfile;
-
-		ofstream fout;
-		fout.open(file, ios::out | ios::binary); // 읽기모드
+		
+		ofstream fout(docfile);
 
 		if (!fout)
 		{
-			cout << "saveDoctor() 파일 열기 오류";
-			exit(-1);
+			cout << docfile << " 파일 열기 오류";
+			return;
 		}
 
-		/*fout.write((char*)&Count, sizeof(Count));
+		fout << doctor.size() << endl;
 
-		for (int i = 0; i < Count; i++)
-			fout.write((char*)(doctor[i]), sizeof(Doctor));*/
+		for (int i = 0; i < doctor.size(); i++) {
+			fout << doctor[i].getName() << " ";
+			fout << doctor[i].getID() << " ";
+			fout << doctor[i].getPW() << " ";
+			fout << doctor[i].getYY() << " ";
+			fout << doctor[i].getMM() << " ";
+			fout << doctor[i].getDD() << " ";
+			fout << doctor[i].getToPatList().size() << " ";
+			for (int j = 0; j < doctor[i].getToPatList().size(); j++) {
+				fout << doctor[i].showPat(j) << " ";
+			}
+			fout << doctor[i].getPK() << endl;
+		}
 
 		fout.close();
 
-		printf(docfile);
-		printf(" Save !!! \n");
+		printf("\n=====의사 정보를 저장했습니다!!! \n");
 	}
 
 	void doc_Load()
 	{
-		const char* file = docfile;
-
-		ifstream fin;
-		fin.open(file, ios::in | ios::binary); // 읽기모드
+		ifstream fin(docfile);
 
 		if (!fin)
 		{
-			cout << "emp_load() 파일 열기 오류";
-			exit(-1);
+			cout << docfile << " 파일 열기 오류";
+			return;
 		}
 
-		/*fin.read((char*)&Count, sizeof(Count));
+		int n, m, PK, YY, MM, DD, toPat;
+		char Name[defNameLen], ID[defIDLen], PW[defPWLen];
+		vector<int> toPatList;
+		Doctor newDoc;
 
-		for (int i = 0; i < Count; i++)
-		{
-			doctor[i] = new EMPLOYEE;
-			fin.read((char*)(empPtr[i]), sizeof(EMPLOYEE));
-		}*/
+		fin >> n;
+
+		for (int i = 0; i < n; i++) {
+			fin >> Name;
+			fin >> ID;
+			fin >> PW;
+			fin >> YY;
+			fin >> MM;
+			fin >> DD;
+			fin >> m;
+			for (int j = 0; j < m; j++) {
+				fin >> toPat;
+				toPatList.push_back(toPat);
+			}
+			fin >> PK;
+
+			newDoc.setInfo(Name, ID, PW, YY, MM, DD);
+			doctor.push_back(newDoc);
+		}
+
 		fin.close();
 
-		printf(docfile);
-		printf(" Load!!! \n");
+		printf("\n=====의사 정보를 불러왔습니다!!! \n");
 	}
 	int SOS() {
 

@@ -29,7 +29,7 @@ public:
 	}
 	void setInfo(const char* _name, const char* _ID, const char* _PW, int _YY, int _MM, int _DD) {
 		Person::setInfo(_name, _ID, _PW, _YY, _MM, _DD);
-		toPatList.push_back(1);
+		//toPatList.push_back(1);
 		PK = docPK;
 		docPK++;
 	}
@@ -58,6 +58,15 @@ public:
 	}
 	int getPK() {
 		return PK;
+	}
+	int getYY() {
+		return YY;
+	}
+	int getMM() {
+		return MM;
+	}
+	int getDD() {
+		return DD;
 	}
 	char* getName() {
 		return name;

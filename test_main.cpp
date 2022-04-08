@@ -33,27 +33,29 @@ int main() {
 	DoctorHandler doc_handler;
 	PatientHandler pat_handler;
 
+	//doc_handler.doc_Load();
 	//doc_handler.doc_Signin();
-	doc_handler.doc_Signin();
-	cout << endl;
-	doc_handler.doc_List();
-
-	doc_handler.doc_Find();
-	bool log = false;
-	while (!log) {
-		if (doc_handler.doc_Login()) {
-			cout << "성공!!" << endl;
-			log = true;
-		}
-		else {
-			cout << "로그인 코드 실패!" << endl;
-		}
-	}
-	cout << "test------------------" << endl;
-
-	//pat_handler.pat_Signin();
+	//doc_handler.doc_Signin();
 	//cout << endl;
-	//pat_handler.pat_Info();
+	//doc_handler.doc_List();
+
+	//doc_handler.doc_Find();
+	//bool log = false;
+	//while (!log) {
+	//	if (doc_handler.doc_Login()) {
+	//		cout << "성공!!" << endl;
+	//		log = true;
+	//	}
+	//	else {
+	//		cout << "로그인 코드 실패!" << endl;
+	//	}
+	//}
+	//cout << "test------------------" << endl;
+
+	pat_handler.pat_Signin();
+	pat_handler.pat_Signin();
+	cout << endl;
+	pat_handler.pat_List();
 
 	//pat_handler.pat_Find();
 	////pat_handler.showDocList();
@@ -70,24 +72,25 @@ int main() {
 	//}
 
 
-	int sosPK = doc_handler.SOS();
-	if (sosPK != 0) {
-		pat_handler.pat_FindSOSPK(sosPK);
-	}
+	//int sosPK = doc_handler.SOS();
+	//if (sosPK != 0) {
+	//	pat_handler.pat_FindSOSPK(sosPK);
+	//}
 
-	cout << "test------------------" << endl;
-	sosPK = doc_handler.SOS();
-	if (sosPK) {
-		pat_handler.pat_FindSOSPK(sosPK);
-	}
-	cout << "test------------------" << endl;
+	//cout << "test------------------" << endl;
+	//sosPK = doc_handler.SOS();
+	//if (sosPK) {
+	//	pat_handler.pat_FindSOSPK(sosPK);
+	//}
+	//cout << "test------------------" << endl;
 
-	bool logout_test = doc_handler.doc_Logout();
+	//bool logout_test = doc_handler.doc_Logout();
 
-	sosPK = doc_handler.SOS();
-	if (sosPK) {
-		pat_handler.pat_FindSOSPK(sosPK);
-	}
+	//sosPK = doc_handler.SOS();
+	//if (sosPK) {
+	//	pat_handler.pat_FindSOSPK(sosPK);
+	//}
 
+	pat_handler.pat_Save();
 	
 }
