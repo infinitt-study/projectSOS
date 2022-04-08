@@ -66,6 +66,10 @@ public:
 		cout << "회원가입을 진행합니다." << endl;
 		cin.ignore();
 		cout << "==============================" << endl;
+<<<<<<< HEAD
+=======
+
+>>>>>>> e1105fe750cbaba286f8c9e434d4c226b733ddd2
 		cout << "이름은 ? ";
 		cin.getline(name, defNameLen);
 		tryAgainID: // 아이디 중복확인
@@ -206,15 +210,18 @@ public:
 		cout << "gkgkgkgkkgkg" << endl;
 		for (int i = 0; i < patient.size(); i++) {
 			fout << "test" << endl;
-		/*	fout << patient[i].getName() << " ";
+			fout << patient[i].getName() << " ";
 			fout << patient[i].getID() << " ";
 			fout << patient[i].getPW() << " ";
 			fout << patient[i].getYY() << " ";
 			fout << patient[i].getMM() << " ";
 			fout << patient[i].getDD() << " ";
 			fout << patient[i].getAddr() << " ";
-			fout << patient[i].getToDoc()<< " ";
-			fout << patient[i].getPK() << endl;*/
+			if(patient[i].getToDoc() == NULL)
+				fout << "non" << " ";
+			else
+				fout << patient[i].getToDoc()<< " ";
+			fout << patient[i].getPK() << endl;
 		}
 
 		fout.close();
@@ -251,7 +258,8 @@ public:
 			fin >> PK;
 
 			newPat.setInfo(Name, ID, PW, YY, MM, DD, Addr);
-			newPat.setDocName(ToDoc);
+			if (strcmp(name, "non") != 0)
+				newPat.setDocName(ToDoc);
 			patient.push_back(newPat);
 		}
 
