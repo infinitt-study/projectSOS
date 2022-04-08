@@ -1,40 +1,22 @@
 ﻿  admHandlerH.cpp
-<<<<<<< HEAD
 C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\doctorH.h(54,1): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(151,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(150,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(150,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(157,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(156,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(156,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
   docHandlerH.cpp
 C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\doctorH.h(54,1): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(151,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(150,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(150,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(157,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(156,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(156,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
   patHandlerH.cpp
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(151,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(150,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(150,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(157,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(156,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(156,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
+  patientH.cpp
   코드를 생성하고 있습니다...
   test_main.cpp
 C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\doctorH.h(54,1): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(151,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(150,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
-C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(150,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(157,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(156,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
+C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\patHandlerH.h(156,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
   ProjectSOS.vcxproj -> C:\Users\Hyejeong\Documents\GitHub\healthcare\projectSOS\x64\Debug\ProjectSOS.exe
-=======
-D:\projectSOS\doctorH.h(54,1): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\projectSOS\patHandlerH.h(157,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
-D:\projectSOS\patHandlerH.h(156,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
-D:\projectSOS\patHandlerH.h(156,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
-  docHandlerH.cpp
-D:\projectSOS\doctorH.h(54,1): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\projectSOS\patHandlerH.h(157,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
-D:\projectSOS\patHandlerH.h(156,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
-D:\projectSOS\patHandlerH.h(156,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
-  코드를 생성하고 있습니다...
-  projectSOS_Method.cpp
-D:\projectSOS\doctorH.h(54,1): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\projectSOS\patHandlerH.h(157,11): warning C4101: 'getPK' :참조되지 않은 지역 변수입니다.
-D:\projectSOS\patHandlerH.h(156,8): warning C4101: 'name' :참조되지 않은 지역 변수입니다.
-D:\projectSOS\patHandlerH.h(156,28): warning C4101: 'getname' :참조되지 않은 지역 변수입니다.
-  ProjectSOS.vcxproj -> D:\projectSOS\x64\Debug\ProjectSOS.exe
->>>>>>> fdf24ab361bdf152dd06532931e2fc421a6cd38b
