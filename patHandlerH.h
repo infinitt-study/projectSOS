@@ -57,6 +57,7 @@ public:
 		int YY, MM, DD;
 
 		cout << "회원가입을 진행합니다." << endl;
+		cin.ignore();
 		cout << "이름은 ? ";
 		cin.getline(name, defNameLen);
 		tryAgainID: // 아이디 중복확인
